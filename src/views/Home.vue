@@ -245,36 +245,36 @@ export default {
           title:'deposit',
           icon:'fas fa-plus',
           to:"/deposit",
-          color:'green lighten-1'
+          color:'#27ae60'
         },
         {
           title:'exchange',
           icon:'fas fa-sync-alt',
           to:'/exchange',
-          color:'orange lighten-1'
+          color:'#3498db'
         },
         {
           title:'withdraw',
           icon:'fas fa-hand-holding-usd',
           to:'/withdraw',
-          color:'purple lighten-1'
+          color:'#e74c3c'
         },
         {
           title:'send',
           icon:'fas fa-arrow-circle-up',
           to:'/send',
-          color:'light-blue'
+          color:'#9b59b6'
         },
         {
           title:'request',
           icon:'fas fa-handshake',
           to:'/request',
-          color:'red'
+          color:'#20b2aa'
         },
         {
           title:'QRPay',
           icon:'fas fa-qrcode',
-          color:'light-blue lighten-1'
+          color:'#2b5797'
         }
       ]
     }

@@ -1,6 +1,6 @@
 <template>
     <v-container class="px-0">
-        <v-card class="mt-3 mx-0">
+        <v-card class="mt-3 mx-0 class hidden-md-and-down">
         <v-card-title>{{$t('history')}}</v-card-title>
 
           <v-data-table
@@ -33,6 +33,41 @@
 
       </v-card>
 
+      <div class="hidden-lg-and-up">
+        <h3 class="grey--text text--darken-2">{{$t('history')}}</h3>
+        
+        <v-card v-for="item in transactions" :key="item.id"  class="d-flex mt-5">
+        <div class="primary" style="width:4px;"></div>
+
+        <v-card-text class="px-2">
+            <div class="d-flex">
+                <span :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'">{{$moment(item.createdAt).format('DD/MM/YYYY')}}</span>
+                <div style="font-size:17px"  :class="($vuetify.rtl) ? 'mr-auto' : 'ml-auto'">
+                  <span><v-btn small depressed :color="item.color">{{(item.complete) ? $t('complete'): $t('incomplete')}}</v-btn></span>
+                </div>
+            </div>
+
+            <div class="d-flex mt-3">
+                <span style="font-size:16px" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'">{{$t('account')}}</span>
+                <span style="font-size:18px" :class="($vuetify.rtl) ? 'mr-auto success--text' :'ml-auto success--text'">{{item.value.toFixed(2)}}</span> <span style="font-size:16px" class="mx-2">{{item.currency}}</span>
+            </div>
+
+             <div class="d-flex mt-2">
+                <span style="font-size:16px;direction:ltr" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'">{{item.account}}</span>
+                <span style="font-size:15px" :class="($vuetify.rtl) ? 'mr-auto mx-2' : 'ml-auto mx-2' ">{{$t('fee')}} 0.00 {{item.currency}}</span>
+            </div>
+
+            <v-divider class="my-3" />
+
+            <div class="d-flex flex-column mt-2">
+                <span style="font-size:15px" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'"> {{$t('transactionId')}}: {{item.id}}</span>
+                <span class="mt-1" style="font-size:15px">{{$t('transactionType')}} : <span style="font-size:16px" class="light-blue--text">{{item.type}}</span></span>
+            </div>
+        </v-card-text>
+
+      </v-card>
+      </div>
+
 
     </v-container>
 </template>
@@ -52,6 +87,16 @@ export default {
     mounted(){
         axios.get('/api/wallet/history').then(res=>{
           this.transactions = res.data.transactions.map(item=>{
+
+            if(!item.to){
+              item.to = {};
+              item.to.phone = '';
+            }
+
+            if(!item.from){
+              item.from = {};
+              item.from.phone = ''
+            }
 
             if(item.desc == W_TRANS){
               if(item.from.phone == this.phone){

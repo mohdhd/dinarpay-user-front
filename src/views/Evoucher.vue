@@ -93,6 +93,8 @@
 
 <script>
 import axios from 'axios';
+const pinRe = /^(?!(.)\1{3})(?!19|20)\d{4}$/i;
+
 
 export default {
     name:'Evoucher',
@@ -142,7 +144,10 @@ export default {
           this.color = 'error';
           this.message = this.$i18n.t('errorMessage');
         })
-      }
+      },
+      validatePin(v){
+            return pinRe.test(v);
+        }
     }
 }
 </script>

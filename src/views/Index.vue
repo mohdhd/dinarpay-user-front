@@ -12,7 +12,7 @@
         </v-btn>
 
         <div class="d-flex align-center">
-        <div cl style="font-size:25px" :class="($vuetify.rtl) ? 'mr-3' : 'ml-3'">{{$t('dinarpay')}}</div>
+        <div cl style="font-size:24px" :class="($vuetify.rtl) ? 'mr-3' : 'ml-3'">{{$t('dinarpay')}}</div>
       </div>
 
       <v-spacer></v-spacer>

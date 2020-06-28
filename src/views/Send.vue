@@ -87,18 +87,18 @@
             <div v-else>
               <v-card-text>
               <div>
-                <span style="font-weight:bold" class="mr-3">{{$t('to')}}:</span>
-                <span>{{this.to}}</span>
+                <span style="font-weight:bold;font-size:17px" class="mx-2">{{$t('to')}}:</span>
+                <span style="font-size:16px">{{this.to}}</span>
               </div>
 
               <div>
-                <span style="font-weight:bold" class="mr-3">{{$t('amount')}}:</span>
-                <span>{{this.amount}}</span>
+                <span style="font-weight:bold;font-size:17px" class="mx-2">{{$t('amount')}}:</span>
+                <span style="font-size:16px">{{this.amount}}</span>
               </div>
 
               <div>
-                <span style="font-weight:bold" class="mr-3">{{$t('currency')}}:</span>
-                <span>{{this.currency}}</span>
+                <span style="font-weight:bold;font-size:17px" class="mx-2">{{$t('currency')}}:</span>
+                <span style="font-size:16px">{{this.currency}}</span>
               </div>
             </v-card-text>
 

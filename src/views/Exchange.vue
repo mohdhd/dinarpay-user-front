@@ -32,6 +32,7 @@
                         <v-text-field
                         :label="$t('amount')"
                         v-model="amount"
+                        type="number"
                         @keyup="calcReceived"
                         :rules="[
                             v => !!v || $t('amountRequired')

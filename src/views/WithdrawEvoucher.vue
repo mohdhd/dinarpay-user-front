@@ -72,13 +72,13 @@
 
               <v-card-text>
               <div>
-                <span style="font-weight:bold" class="mr-3">{{$t('value')}}:</span>
-                <span>{{this.amount}}</span>
+                <span style="font-weight:bold;font-size:16.5px" class="mx-1">{{$t('value')}}:</span>
+                <span style="font-size:16px">{{this.amount}}</span>
               </div>
 
               <div>
-                <span style="font-weight:bold" class="mr-3">{{$t('currency')}}:</span>
-                <span>{{this.currency}}</span>
+                <span style="font-weight:bold;font-size:16.5px" class="mx-1">{{$t('currency')}}:</span>
+                <span style="font-size:16px">{{this.currency}}</span>
               </div>
             </v-card-text>
 
