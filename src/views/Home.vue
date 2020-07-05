@@ -19,7 +19,7 @@
                 </div>
 
                 <div>
-                  <span style="font-weight:bold" class="white--text">{{this.balance.USD}}</span> <span class="white--text" style="font-weight:bold">USD</span>
+                  <span style="font-weight:bold;font-size:22px" class="white--text">{{this.balance.USD}}</span> <span class="white--text" style="font-weight:bold;font-size:22px">USD</span>
                 </div>
               </v-card-title>
 
@@ -123,14 +123,14 @@
     
         <h2 class="grey--text text--darken-3">{{$t('summary')}}</h2>
 
-        <v-card v-for="item in transactions.slice(0,4)" :key="item.id"  class="d-flex mt-5">
+       <v-card v-for="item in transactions" :key="item.id"  class="d-flex mt-5">
         <div class="primary" style="width:4px;"></div>
 
         <v-card-text class="px-2">
             <div class="d-flex">
                 <span :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'">{{$moment(item.createdAt).format('DD/MM/YYYY')}}</span>
                 <div style="font-size:17px"  :class="($vuetify.rtl) ? 'mr-auto' : 'ml-auto'">
-                  <span>{{(item.complete) ? $t('complete'): $t('incomplete')}}</span>
+                  <span><v-btn small depressed :color="item.color">{{(item.complete) ? $t('complete'): $t('incomplete')}}</v-btn></span>
                 </div>
             </div>
 
@@ -147,8 +147,8 @@
             <v-divider class="my-3" />
 
             <div class="d-flex flex-column mt-2">
-                <span style="font-size:14px" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'"> {{$t('transactionId')}}: {{item.id}}</span>
-                <span style="font-size:15px" class="light-blue--text">{{item.type}}</span>
+                <span style="font-size:15px" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'"> {{$t('transactionId')}}: {{item.id}}</span>
+                <span class="mt-1" style="font-size:15px">{{$t('transactionType')}} : <span style="font-size:16px" class="light-blue--text">{{item.type}}</span></span>
             </div>
         </v-card-text>
 

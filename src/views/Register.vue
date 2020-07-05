@@ -94,7 +94,7 @@ import {codes} from '@/config.js';
 import {ACC_EXIST} from '../config/err_code';
 
 //eslint-disable-next-line
-const phoneRe = /^[1-9]\d{9}$|^[1-9]\d{8}$/im;
+const phoneRe = /^[1-9]\d{7}$|^[1-9]\d{8}$|^[1-9]\d{9}$/im;
 //eslint-disable-next-line
 const pinRe = /^(?!(.)\1{3})(?!19|20)\d{4}$/i;
 

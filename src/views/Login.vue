@@ -76,7 +76,7 @@ import {codes} from '@/config.js';
 import {NO_ACC,WRONG_PASS} from '../config/err_code';
 
 //eslint-disable-next-line
-const phoneRe = /^[1-9]\d{9}$|^[1-9]\d{8}$/im;
+const phoneRe = /^[1-9]\d{7}$|^[1-9]\d{8}$|^[1-9]\d{9}$/im;
 
 import {login} from '@/auth.js'
 

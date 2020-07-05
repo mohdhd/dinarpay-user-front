@@ -183,7 +183,7 @@
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-item-title :style="($vuetify.rtl) ? '14px' : '16px'" >{{ $t(item.title) }}</v-list-item-title>
+              <v-list-item-title :style="($vuetify.rtl) ? '15px' : '17px'" >{{ $t(item.title) }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 

@@ -7,8 +7,8 @@
 import axios from 'axios';
 import {token} from './auth';
 
-axios.defaults.baseURL = 'https://backend.dinarpay.net' || 'http://localhost:8000';
-// axios.defaults.baseURL =  'http://localhost:8000';
+// axios.defaults.baseURL = 'https://backend.dinarpay.net' || 'http://localhost:8000';
+axios.defaults.baseURL =  'http://localhost:8000';
 
 axios.defaults.headers.common = {
   Authorization:`Bearer ${token()}`
@@ -23,7 +23,6 @@ export default {
   },
   err=>{
     if(err.response.status == 401){
-      localStorage.removeItem('token');
       localStorage.removeItem('token');
     }
     this.$router.push('/login')
