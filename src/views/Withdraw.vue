@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <v-overlay z-index="10" :value="overlay" color="#fff">
+        <v-progress-circular indeterminate size="65" color="primary" />
+    </v-overlay>
+
     <h3 class="grey--text text--darken-1 text-center">{{$t('withdrawHeaderText')}}</h3>
 
     <v-row>
@@ -11,6 +15,7 @@
         lg="4">
 
         <v-card
+          :disabled="!settings[item.value]"
           height="20vh"
           :color="item.color"
           ripple
@@ -26,36 +31,52 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Withdraw",
+  mounted(){
+    this.overlay = true;
+    axios.get('/api/admin/withdrawal_methods').then(res=>{
+      this.settings = res.data.withdrawal;
+      this.overlay = false;
+    })
+  },
   data() {
     return {
+      settings:{},
+      overlay:false,
       options: [
         {
           title: this.$i18n.t('paypal'),
           icon: "fab fa-paypal",
-          color: "indigo"
+          color: "indigo",
+          value:'paypal'
         },
-        {
-            title:this.$i18n.t('creditCard'),
-            color:"light-blue darken-1",
-            icon:"fas fa-credit-card"
-        },
+        // {
+        //     title:this.$i18n.t('creditCard'),
+        //     color:"light-blue darken-1",
+        //     icon:"fas fa-credit-card",
+        //     value:'creditCard'
+        // },
         {
             title:this.$i18n.t('bitcoin'),
             color:'orange',
-            icon:'fab fa-btc'
+            icon:'fab fa-btc',
+            value:'bitcoin'
         },
         {
             title:this.$i18n.t('bank'),
             color:'indigo lighten-1',
-            icon:'fas fa-university'
+            icon:'fas fa-university',
+            value:'bank'
         },
         {
             title:this.$i18n.t('evoucher'),
             color:"red darken-2",
             icon:'fas fa-ticket-alt',
-            to:'/withdraw/evoucher'
+            to:'/withdraw/evoucher',
+            value:'evoucher'
         }
       ]
     };

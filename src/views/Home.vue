@@ -105,7 +105,7 @@
           <td style="direction:ltr" class="text-center">{{item.account}}</td>
           <td class="text-center">{{item.type}}</td>
           <td class="text-center">{{item.value.toFixed(2)}} {{item.currency}}</td>
-          <td class="text-center">0 {{item.currency}}</td>
+          <td class="text-center">{{item.fee.toFixed(2)}} {{item.currency}}</td>
           <td class="text-center">{{$moment(item.createdAt).format('DD/MM/YYYY')}}</td>
           <td class="text-center">
             <v-btn small depressed :color="item.color">{{(item.complete) ? $t('complete'): $t('incomplete')}}</v-btn>
@@ -141,7 +141,7 @@
 
              <div class="d-flex mt-2">
                 <span style="font-size:16px;direction:ltr" :class="($vuetify.rtl) ?'ml-auto' : 'mr-auto'">{{item.account}}</span>
-                <span style="font-size:15px" :class="($vuetify.rtl) ? 'mr-auto mx-2' : 'ml-auto mx-2' ">{{$t('fee')}} 0.00 {{item.currency}}</span>
+                <span style="font-size:15px" :class="($vuetify.rtl) ? 'mr-auto mx-2' : 'ml-auto mx-2' ">{{$t('fee')}} {{item.fee.toFixed(2)}} {{item.currency}}</span>
             </div>
 
             <v-divider class="my-3" />

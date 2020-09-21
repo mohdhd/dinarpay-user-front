@@ -255,7 +255,7 @@ import io from 'socket.io-client';
 import {user} from '../auth';
 
 const socket = io('https://backend.dinarpay.net');
-
+// const socket = io('http://localhost:8000')
 
 
 //eslint-disable-next-line
